@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if login %}
+        {% if len_scores > 0 %}
+            {% for score in scores %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-2" href="{{ url_for('scores.score', score_id=score.id) }}">{{ score.course }}</a>
+                            <small class="text-muted">{{ score.played }}</small>
+                        </div>
+                        <h4><a class="article-title" href="{{ url_for('scores.score', score_id=score.id) }}">{{ score.gross_adjusted_score }}</a></h4>
+                    </div>
+                </article>
+            {% endfor %}
+            {% if show_page_buttons %}
+                {% for page_num in page_nos %}
+                    {% if page_num %}
+                        {% if page == page_num %}
+                            <a class="btn btn-info mb-4" href="{{ url_for('scores.all_scores', page=page_num) }}">{{ page_num }}</a>
+                        {% else %}
+                            <a class="btn btn-outline-info mb-4" href="{{ url_for('scores.all_scores', page=page_num) }}">{{ page_num }}</a>
+                        {% endif %}
+                    {% else %}
+                        ...
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <div class="content-section">
+                <p>No rounds</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="content-section">
+            <p>Login or Register</p>
+        </div>
+    {% endif %}
+{% endblock content %}

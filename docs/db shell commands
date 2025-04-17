@@ -1,0 +1,17 @@
+. venv/bin/activate
+python3
+from app import app, db
+app.app_context().push()
+db.create_all()
+from datetime import date
+from app import User, Score, IndexHistory
+user_1 = User(name='Phil', email='phil@cluesome.com', password='password', handicap_index=5.4, low_hi=5.2, low_hi_date=date(year=2023, month=12, day=25))
+db.session.add(user_1)
+db.session.commit()
+User.query.all()
+history_1 = IndexHistory(handicap_index=5.1, handicap_index_date=date(year=2023, month=10, day=20), user_id=1)
+history_2 = IndexHistory(handicap_index=4.8, handicap_index_date=date(year=2024, month=4, day=20), user_id=1)
+db.session.add(history_1)
+db.session.add(history_2)
+db.session.commit()
+IndexHistory.query.all()

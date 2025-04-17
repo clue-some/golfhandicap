@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>About Handicap Indexes</h1>
+    <div class="content-section">
+        <p>Maintain a golf handicap index consistent with the World Handicap System (WHS).</p>
+        <p>Your <b>current handicap index</b> is calculated depending on how many rounds have been played.
+            The number of rounds used to calculate the index will change as more rounds are played.
+            With fewer than 20 rounds, less of your rounds will be used; once you have played 20 rounds, the
+            best 8 of your 20 most recent rounds are used. A handicap is only calculated when at least three 
+            rounds are entered.</p>
+        <p>You may view the rounds used to calculate the handicap index under <a href="{{ url_for('main.home') }}">
+            Handicap Index</a>. You may view all the rounds you have entered under
+            <a href="{{ url_for('scores.all_scores') }}">All Rounds</a>. Use <a href="{{ url_for('scores.new_score') }}">
+            Add Round</a> to add a new round.</p>
+    </div>
+    <div class="content-section">
+        <p>For more information on the World Handicap System, please visit the
+             <a href="https://www.randa.org/en/handicapping">R&A</a>, the 
+             <a href="https://www.usga.org/content/usga/home-page/handicapping.html">USGA</a>, or the WHS 
+             handicapping authority in your country.</p>
+    </div>
+    <div class="content-section">
+        <p><small class="text-muted">Site maintained by <a href="mailto:phil@cluesome.com">cluesome</a>. For
+        demonstration purposes only.</small></p>
+    </div>
+{% endblock content %}

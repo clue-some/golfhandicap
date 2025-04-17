@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if login %}
+        {% if len_scores > 0 %}
+            {% for (index, score, window) in scores %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-2" href="{{ url_for('scores.score', score_id=score.id) }}">{{ score.course }}</a>
+                            <small class="text-muted">{{ score.played }}</small>
+                        </div>
+                        <h4><a class="article-title" href="{{ url_for('scores.score', score_id=score.id) }}">{{ score.gross_adjusted_score }}</a></h4>
+                        <small class="text-muted">Round {{index}} of the {{window}} most recent rounds.</small>
+                    </div>
+                </article>
+            {% endfor %}
+        {% else %}
+            <div class="content-section">
+                <p>No counting rounds.</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="content-section">
+            <p>Please <a href="{{ url_for('users.login') }}">Login</a> or <a href="{{ url_for('users.register') }}">Register</a>.</p>
+        </div>
+    {% endif %}
+{% endblock content %}

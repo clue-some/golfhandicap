@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}     <!-- add CSRF token (Cross Site Reverse Forgery) -->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3">{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.course.label(class="form-control-label") }}
+                    {% if form.course.errors %}
+                    {{ form.course(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.course.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.course(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+                <div class="form-group mt-1">
+                    {{ form.played.label(class="form-control-label") }}
+                    {% if form.played.errors %}
+                    {{ form.played(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.played.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.played(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+                <div class="form-group mt-1">
+                    {{ form.strokes.label(class="form-control-label") }}
+                    {% if form.strokes.errors %}
+                    {{ form.strokes(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.strokes.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.strokes(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+                <div class="form-group mt-1">
+                    {{ form.rating.label(class="form-control-label") }}
+                    {% if form.rating.errors %}
+                    {{ form.rating(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.rating.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.rating(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+                <div class="form-group mt-1">
+                    {{ form.slope.label(class="form-control-label") }}
+                    {% if form.slope.errors %}
+                    {{ form.slope(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.slope.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.slope(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+                <div class="form-group mt-1">
+                    {{ form.holes.label(class="form-control-label") }}
+                    {% if form.holes.errors %}
+                    {{ form.holes(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.holes.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.holes(class="form-control form-control-lg") }}
+                    {% endif  %}
+                </div>
+           </fieldset>
+            <div class="form-group mt-2">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+ 

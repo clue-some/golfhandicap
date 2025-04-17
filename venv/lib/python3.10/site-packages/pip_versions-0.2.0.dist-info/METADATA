@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: pip-versions
+Version: 0.2.0
+Summary: Show pip version information from pypi
+Home-page: https://github.com/willemt/pip-versions/
+License: BSD
+Keywords: pip
+Author: Willem Thiart
+Author-email: himself@willemthiart.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: cliar (>=1.3.4,<2.0.0)
+Project-URL: Repository, https://github.com/willemt/pip-versions/
+Description-Content-Type: text/x-rst
+
+Get version information about a pip from pypi (and private repos)
+
+Installation
+============
+
+.. code-block:: bash
+   :class: ignore
+
+   pip3 install pip-versions
+
+
+Usage
+=====
+
+Get the latest version
+
+.. code-block:: bash
+   :class: ignore
+
+   pip-versions latest django
+
+
+.. code-block:: bash
+   :class: ignore
+
+   3.1.2
+
+
+Get all the versions
+
+.. code-block:: bash
+   :class: ignore
+
+   pip-versions list django
+
+
+.. code-block:: bash
+   :class: ignore
+
+   2.2.15
+   2.2.16
+   3.0
+   3.0.1
+   3.0.2
+   3.0.3
+   3.0.4
+   3.0.5
+   3.0.6
+   3.0.7
+   3.0.8
+   3.0.9
+   3.0.10
+   3.1
+   3.1.1
+   3.1.2
+
